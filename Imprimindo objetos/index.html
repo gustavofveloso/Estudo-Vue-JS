@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="vue.js"></script>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        {{nome}}, {{idade}}.<br/>
+        Preferências: {{preferencias.bebida}}, {{preferencias.comida}}, {{preferencias.doce}}.
+    </div>
+
+    <script>
+        //Função construtora Vue Model
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                nome: "Gustavo Farias",
+                idade: "24 anos",
+                preferencias: {
+                    bebida: "Café",
+                    comida: "Macarrão",
+                    doce: "Mousse de Maracujá" 
+                }
+            }
+        });
+
+        console.log(vm);
+
+        
+    </script>
+</body>
+</html>
