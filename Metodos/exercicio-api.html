@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../vue.js"></script>
+    <title>Vue.js</title>
+</head>
+<body>
+
+    <div id="app">
+        <p>Ultimo preco: {{acoes.latestPrice}}</p>
+        <p>Ultima hora: {{acoes.latestTime}}</p>
+        <p>Nome da Compania: {{acoes.companyName}}</p>
+        {{acoes}}
+        <button @click="buscarAcoes">Buscar Ações</button>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                acoes: {},
+            },
+            methods: {
+                buscarAcoes(){
+                    fetch("https://sandbox.iexapis.com/stable/stock/aapl/batch?types=quote,news,chart&range=1m&last=10&token=Tsk_450587c6c8ae4f75bc6678253331852d")
+                    .then(response => response.json())
+                    .then(json => {
+                        this.acoes = json;
+                    })
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
