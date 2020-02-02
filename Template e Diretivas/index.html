@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../vue.js"></script>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <div v-if="comprou">
+            <p>{{conteudo}}</p>
+            <p>Aréa de um quadrado {{lado}} x {{lado}} = {{lado * lado}}</p>
+            <p>Expressao ternaria: {{comprou ? 'Verdadeiro' : 'Falso'}}</p>
+            <a :href="href">{{href}}</a>
+        </div>
+        <input v-model="cor" type="color">
+        {{cor}}
+
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                titulo: "Curso de Javascript",
+                conteudo: "Esse é o conteúdo",
+                lado: 5,
+                comprou: true,
+                href: 'https://www.google.com.br',
+                cor: "#ccc",
+            }
+        });  
+    </script>
+
+</body>
+</html>
